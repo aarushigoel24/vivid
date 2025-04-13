@@ -1,0 +1,8 @@
+{
+    "scripts": {
+      "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "server": "cd backend && node index.js",
+      "client": "cd frontend && npm run dev"
+    }
+  }
+  
