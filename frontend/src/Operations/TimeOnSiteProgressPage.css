@@ -1,0 +1,67 @@
+
+  .comment-box {
+    width: 100%;
+    resize: vertical;
+    min-height: 50px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  /* Reuse layout, table, button-group, textarea, etc. from common.css */
+
+/* Only include page-specific or override styles here */
+.header-with-button {
+  display: flex;
+  
+  flex-direction: column;
+  align-items: center; /* or center/right depending on your alignment preference */
+  gap: 6px; /* space between button and header text */
+}
+
+.header-label {
+  font-weight: 600;
+}
+
+/* Green and red text overrides */
+.green-text {
+  color: #388e3c;
+  font-weight: 600;
+}
+
+.red-text {
+  color: #d32f2f;
+  font-weight: 600;
+}
+/* Override header color for the "Contract Hours" column */
+.table thead th.contract {
+  background-color: #007bff; 
+}
+.table thead th.deliverhrs {
+  background-color: lightseagreen; 
+}
+.table thead th.contractedhrs {
+  background-color: orangered; 
+}
+.table thead th.actualloss {
+  background-color: red; 
+}
+.table thead th.attendance {
+  background-color: grey; 
+}
+
+.week-heading-row {
+  background-color: #f0f0f0;
+}
+
+.week-heading {
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  font-size: 16px;
+}
+.total-row {
+  font-weight: bold; /* Make the total row bold */
+  background-color: #f9f9f9; /* Optional: Add a background color for distinction */
+}

@@ -1,0 +1,14 @@
+/* Optional: vivid-specific top header line */
+.table thead tr:first-child th {
+  border-bottom: none;
+  box-shadow: inset 0px -4px 0px 0px #e59500;
+}
+.flag-icon {
+  margin-right: 6px;
+  color: red;
+}
+
+.key-icon {
+  margin-right: 6px;
+  color: goldenrod;
+}

@@ -1,0 +1,68 @@
+.layout-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    scrollbar-width: thin; /* For modern browsers */
+    scrollbar-color: #aaa #f0f0f0; /* Custom scrollbar styling */
+}
+
+.sidebar-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+
+
+/* Right Side Content */
+.content {
+    margin-left: 250px; /* Space for sidebar */
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #aaa; /* Scrollbar color */
+    border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Track color */
+}
+

@@ -1,0 +1,140 @@
+.realtime-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .realtime-table th,
+  .realtime-table td {
+    padding: 8px 12px;
+    border-bottom: 1px dashed #ccc;
+    vertical-align: top;
+    text-align: left;
+  }
+  
+  .realtime-table th {
+    background-color: #fff;
+    border-top: 4px double #f9a825;
+border-bottom: 4px double #f9a825;
+
+    color: #444;
+    font-weight: 600;
+  }
+  
+  .realtime-table tbody tr:hover {
+    background-color: #fafafa;
+  }
+  
+  .realtime-table td img.cleaner-photo {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .realtime-table .gps-icon {
+    color: #2196f3;
+    font-size: 18px;
+    margin-top: 4px;
+  }
+  
+  .realtime-table .warning-icon {
+    color: #f44336;
+    margin-left: 4px;
+  }
+  
+  .realtime-table .bold-label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .realtime-table .gps-coords {
+    white-space: pre-line;
+  }
+  
+  .realtime-table .gps-variance {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+  }
+  
+  .realtime-table .photo-match {
+    text-align: center;
+  }
+  
+  .realtime-table .highlighted-cell {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .realtime-table .icon-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+  }
+  
+  .realtime-table .section-divider {
+    border-top: 1px dashed #f0ad4e;
+  }
+  
+  .realtime-table td[colspan] {
+    background-color: #fefefe;
+  }
+  
+  .realtime-table .status-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .warning-section {
+  
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .warning-banner {
+    background-color: #e91e63; /* pink/red */
+    color: white;
+    font-size: 16px;
+    padding: 20px;
+    font-weight: 400;
+    border-radius: 2px;
+    max-width: 95%;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .warning-banner strong {
+    font-weight: 700;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .cleantrak-button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px;
+    
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.2s;
+  }
+  
+  .cleantrak-button:hover {
+    background-color: #1e88e5;
+  }
+  
+  .cleantrak-button i {
+    margin-right: 8px;
+  }
+  

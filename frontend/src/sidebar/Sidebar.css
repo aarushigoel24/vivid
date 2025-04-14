@@ -1,0 +1,102 @@
+/* Sidebar Container */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    color: #2c2f33;
+    height: 100vh;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Title */
+.sidebar-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d33;
+}
+
+/* Sidebar List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Sidebar Header - Main Items */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Active Section */
+.sidebar-header.active {
+    color: red;
+}
+
+/* Sidebar Link */
+.sidebar-link {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.sidebar-link:hover {
+    color: red;
+}
+
+/* Toggle Icons */
+.toggle-icon {
+    font-size: 14px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-icon:hover {
+    color: red;
+}
+
+/* Submenu Styling */
+.sidebar-submenu {
+    padding-left: 20px; 
+    margin-left: 10px;
+}
+
+.sidebar-submenu li {
+    padding: 6px 0;
+}
+
+/* Submenu Link */
+.submenu-link {
+    text-decoration: none;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 40px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Active submenu link */
+.submenu-link.active {
+    font-weight: bold;
+    color: orange;
+}
+
+/* Hover Effect */
+

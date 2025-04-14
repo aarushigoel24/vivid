@@ -1,0 +1,60 @@
+.register-container {
+    background: url('/images/bg.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2%;
+}
+
+/* Styling for the register box */
+.register-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Input fields */
+.register-box input {
+    width: 93%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button */
+.register-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.register-box button:hover {
+    background-color: #218838;
+}
+
+/* Login link */
+.register-box p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-box a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-box a:hover {
+    text-decoration: underline;
+}
+
