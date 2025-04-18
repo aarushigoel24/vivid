@@ -1,0 +1,81 @@
+.report-wrapper {
+    background-color: #eeeeee;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Close button aligned top-center */
+  .report-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .close-btn {
+    background: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .legend-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem; /* reduce spacing */
+    border-bottom: none;   /* ensure no border */
+  }
+  
+  .legend-item {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    color: white;
+  }
+  
+  .legend-item.red { background-color: #dc3545; }
+  .legend-item.orange { background-color: #fd7e14; }
+  .legend-item.green { background-color: #28a745; }
+  
+  /* Table styling remains same */
+  .clean-status-table {
+    width: 100%;
+    max-width: 1400px;
+    background: white;
+    border-collapse: collapse;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-top: none; /* eliminate any extra top border */
+    border: 1px solid #ccc; 
+  }
+  
+  .clean-status-table thead th {
+    background-color: #ffeeba;
+    border-top: 1px solid #ccc; /* optional: light single top line */
+  }
+  .clean-status-table td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  
+  .clean-status-table thead th {
+    background-color: white;
+    border-bottom: 4px double #f9a825;
+    border-top: 4px double #f9a825;
+  margin-top: 0.5rem;
+  }
+  
+  .status-cell.green { background-color: #28a745; color: white; }
+  .status-cell.gray { background-color: #ccc; color: black; }
+  .status-cell.blue { background-color: #007bff; color: white; }
+  

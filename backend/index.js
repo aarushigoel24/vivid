@@ -221,6 +221,32 @@ app.get("/cleanerRecord", (req, res) => {
     });
 });
 
+app.get("/CleanStatusScreen", (req, res) => {
+  const query = `
+    SELECT 
+      client, 
+      site AS site_title, 
+      siteId AS site_id, 
+      login_server_receiver_time AS login_server_recevier_time, 
+      status,
+      site_key
+    FROM vivid_livestats
+    WHERE login_server_receiver_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+    ORDER BY client, siteId, login_server_receiver_time DESC
+  `;
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Error fetching live stats:", err);
+      return res.status(500).json({ error: "Database error" });
+    }
+    
+    console.log("Retrieved records:", results.length);
+    res.json(results);
+  });
+});
+
+
 /*app.post("/vivid_sitepeople_assoc", (req, res) => {
     const { site, comments,keysdropon,startDate,endDate,dropDate,collectDate,collectOn,inductionDate} = req.body;
     console.log(req.body);

@@ -1,0 +1,46 @@
+.info-banner {
+    background-color: #03a9f4;
+    color: white;
+    text-align: center;
+    padding: 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+
+  .info-banner-bottom {
+    margin-top: 120px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 1.55rem;
+    padding: 8px 12px;
+    margin: 24px auto;
+    border-bottom: 4px double #f9a825;
+    font-weight: 600;
+  }
+  
+  /* Center the buttons vertically with spacing */
+  .center-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Row for Excel V + Download buttons */
+  .button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  

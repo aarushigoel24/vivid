@@ -57,7 +57,7 @@ const SidebarLayout = () => {
                     <Route path="CleanTrakRealtimeDataV2" element={<CleanTrakRealtimeDataV2Page />} />
                     <Route path="TimeOnSiteV1" element={<TimeOnSiteV1Page />} />
                     <Route path="TimeOnSiteProgress" element={<TimeOnSiteProgressPage />} />
-                    <Route path="DailyCleanReportV1 " element={<DailyCleanReportV1Page />} />
+                    <Route path="DailyCleanReportV1" element={<DailyCleanReportV1Page />} />
                     <Route path="OperationsKPIV1" element={<OperationsKPIV1Page />} />
                     <Route path="ToolBoxTalkReport" element={<ToolBoxTalkReportPage />} />
                     <Route path="WasteManagement" element={<WasteManagementPage />} />
