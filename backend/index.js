@@ -4,15 +4,20 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() }); 
+const fs = require('fs');
+const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
-    console.log("CORS Middleware is being executed.");
+   // console.log("CORS Middleware is being executed.");
     next();
 });
+
+
 
 app.use(cors({
     origin: "http://localhost:3000",
@@ -52,7 +57,24 @@ app.get("/vivid_sitepeople_assoc", (req, res) => {
       res.send({ success: true });
     });
   });
-   
+
+  
+  app.post("/addCleaner", (req, res) => {
+    const { firstname, lastname, email, phone, loginid,password } = req.body;
+  
+    const query = `
+      INSERT INTO vivid_people (firstname, lastname, email, contact, loginid,password,documenturl)
+      VALUES (?, ?, ?, ?, ?,?,?)
+    `;
+  
+    db.query(query, [firstname, lastname, email, phone, loginid,password,'https://th.bing.com/th/id/OIP.FB_zZf1kLuKf9_i2FUCESgHaLH?rs=1&pid=ImgDetMain'], (err, result) => {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ message: "Cleaner added successfully" });
+    });
+  });
+  
+  
+     
 // Register Route
 app.post("/register", async (req, res) => {
     const { loginid, email, password } = req.body;
@@ -64,6 +86,260 @@ app.post("/register", async (req, res) => {
         res.json({ message: "User registered successfully" });
     });
 });
+app.put("/updateSiteClient/:id", (req, res) => {
+  const { id } = req.params;
+  const { site, client } = req.body;
+  const modifiedDate = Math.floor(Date.now() / 1000);
+
+  // First check if the record exists
+  const checkQuery = "SELECT * FROM vivid_client_site WHERE clientsiteassocid = ?";
+  db.query(checkQuery, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: "Record not found" });
+    }
+
+    // Check if the new values already exist in another record
+    const duplicateCheck = `
+      SELECT * FROM vivid_client_site 
+      WHERE site_name = ? AND client_name = ? AND clientsiteassocid != ?
+    `;
+    db.query(duplicateCheck, [site, client, id], (err, dupResults) => {
+      if (err) return res.status(500).json({ error: err.message });
+
+      if (dupResults.length > 0) {
+        return res.status(200).json({
+          message: "Another record with these values already exists",
+          existingRecord: dupResults[0]
+        });
+      }
+
+      // Update the record
+      const updateQuery = `
+        UPDATE vivid_client_site 
+        SET site_name = ?, client_name = ?, modifiedDate = ?
+        WHERE clientsiteassocid = ?
+      `;
+      db.query(updateQuery, [site, client, modifiedDate, id], (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
+        
+        if (result.affectedRows === 0) {
+          return res.status(404).json({ error: "No record was updated" });
+        }
+        
+        res.json({ 
+          message: "Record updated successfully",
+          updatedRecord: {
+            clientsiteassocid: parseInt(id),
+            site_name: site,
+            client_name: client,
+            modifiedDate: modifiedDate
+          }
+        });
+      });
+    });
+  });
+});
+app.delete("/deleteSiteClient/:id", (req, res) => {
+  const { id } = req.params;
+
+  // First check if the record exists
+  const checkQuery = "SELECT * FROM vivid_client_site WHERE clientsiteassocid = ?";
+  db.query(checkQuery, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: "Record not found" });
+    }
+
+    // Delete the record
+    const deleteQuery = "DELETE FROM vivid_client_site WHERE clientsiteassocid = ?";
+    db.query(deleteQuery, [id], (err, result) => {
+      if (err) return res.status(500).json({ error: err.message });
+      
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ error: "No record was deleted" });
+      }
+      
+      res.json({ 
+        message: "Record deleted successfully",
+        deletedRecord: results[0]
+      });
+    });
+  });
+});
+app.get("/siteClients", (req, res) => {
+  const query = "SELECT clientsiteassocid, site_name, client_name FROM vivid_client_site ORDER BY client_name, site_name";
+  db.query(query, (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+app.get("/siteClients-Distinct", (req, res) => {
+  const query = "SELECT DISTINCT client_name FROM vivid_client_site ORDER BY client_name";
+  db.query(query, (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+
+app.delete('/delete_cleaner', (req, res) => {
+  const { site, peopleid } = req.body;
+  const query = `DELETE FROM vivid_people WHERE peopleid = ?`;
+  db.query(query, [ peopleid], function(err) {
+    if (err) {
+      console.error("Error deleting cleaner:", err);
+      return res.status(500).send("Delete failed");
+    }
+    res.send({ success: true });
+  });
+});
+
+app.get("/cleanerList/:id", (req, res) => {
+  const { id } = req.params;
+  const query = "SELECT * FROM vivid_people WHERE peopleid = ?";
+  
+  db.query(query, [id], (err, results) => {
+    if (err) {
+      console.error("Database error:", err);
+      return res.status(500).json({
+        success: false,
+        error: "Failed to retrieve cleaner",
+        details: err.message,
+      });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: "Cleaner not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      data: results[0], // since it's one cleaner, results will contain one object
+    });
+  });
+});
+
+// Fetch all cleaners
+app.get("/cleanerList", (req, res) => {
+  const query = "SELECT * FROM vivid_people";
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Database error:", err);
+      return res.status(500).json({
+        success: false,
+        error: "Failed to retrieve cleaners",
+        details: err.message,
+      });
+    }
+
+    res.json({
+      success: true,
+      data: results,
+    });
+  });
+});
+
+app.put("/updateCleaner/:id", (req, res) => {
+  const { id } = req.params;
+  const { firstname, lastname, email, phone , gender} = req.body;
+
+  const query = `UPDATE vivid_people SET firstname = ?, lastname = ?, email = ?, contact = ?, gender=?, documentUrl=? WHERE peopleid = ?`;
+  db.query(query, [firstname, lastname, email, phone, gender,'https://th.bing.com/th/id/OIP.FB_zZf1kLuKf9_i2FUCESgHaLH?rs=1&pid=ImgDetMain',id], (err, results) => {
+    if (err) {
+      console.error("Database error:", err);
+      return res.status(500).json({
+        success: false,
+        error: "Failed to update cleaner",
+        details: err.message,
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Cleaner updated sucessfully",
+    });
+  });
+});
+
+
+// Create a new cleaner or update an existing one
+app.post("/cleanerList", (req, res) => {
+  const { id, firstname, lastname, email, phone } = req.body;
+  
+  if (id) {
+    // Update existing cleaner
+    const query = `UPDATE vivid_people SET firstname = ?, lastname = ?, email = ?, contact = ? WHERE peopleid = ?`;
+    db.query(query, [firstname, lastname, email, phone, id], (err, results) => {
+      if (err) {
+        console.error("Database error:", err);
+        return res.status(500).json({
+          success: false,
+          error: "Failed to update cleaner",
+          details: err.message,
+        });
+      }
+
+      res.json({
+        success: true,
+        message: "Cleaner updated",
+      });
+    });
+  } else {
+    // Create new cleaner
+    const query = `INSERT INTO vivid_people (firstname, lastname, email, contact) VALUES (?, ?, ?, ?)`;
+    db.query(query, [firstname, lastname, email, phone], (err, results) => {
+      if (err) {
+        console.error("Database error:", err);
+        return res.status(500).json({
+          success: false,
+          error: "Failed to create cleaner",
+          details: err.message,
+        });
+      }
+
+      res.json({
+        success: true,
+        message: "Cleaner created successfully",
+      });
+    });
+  }
+});
+
+
+
+app.post("/addSiteClient", (req, res) => {
+  const { site, client } = req.body;
+  const createDate = Math.floor(Date.now() / 1000);
+
+  // First, check if the record already exists
+  const checkQuery = "SELECT * FROM vivid_client_site WHERE site_name = ? AND client_name = ?";
+  db.query(checkQuery, [site, client], (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+
+    if (results.length > 0) {
+      // Record exists, send the existing record
+      return res.status(200).json({
+        message: "Record already exists",
+        existingRecord: results[0] // or send the whole results array if you expect multiple
+      });
+    } else {
+      // Insert new record
+      const insertQuery = "INSERT INTO vivid_client_site (site_name, client_name, createDate, modifiedDate) VALUES (?, ?, ?,?)";
+      db.query(insertQuery, [site, client, createDate,createDate], (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ message: "Site & Client saved successfully" });
+      });
+    }
+  });
+});
+
+
+
 
 // Login Route
 app.post("/login", (req, res) => {
@@ -131,6 +407,37 @@ app.get("/events", (req, res) => {
     });
 });
 
+app.post("/certificates", upload.single("file"), (req, res) => {
+  const {
+    type,
+    refNumber,
+    client,
+    site,
+    dataType,
+    cleanerId,
+    epoch
+  } = req.body;
+
+  const filePath = req.file ? `/uploads/${req.file.filename}` : null;
+
+  const query = `
+    INSERT INTO vivid_cert_induction 
+    (cert_type, cert_ref, client_name, data_types,  createdate,peopleid,filename) 
+    VALUES (?, ?, ?, ?, ?,?,?)
+  `;
+
+  const values = [type, refNumber, client, dataType,epoch, cleanerId,'https://sample-files.com/downloads/documents/pdf/basic-text.pdf'];
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error("Insert error:", err);
+      return res.status(500).json({ success: false, message: "Insert failed", error: err.message });
+    }
+
+    res.status(200).json({ success: true, message: "Certificate added" });
+  });
+});
+
 app.get("/certificates", (req, res) => {
     const query = `
         SELECT 
@@ -140,10 +447,10 @@ app.get("/certificates", (req, res) => {
             vci.cert_ref AS refNumber,
             vci.createdate AS startDate,
             vci.enddate AS expiryDate,
-           
+            vci.filename AS fileUrl,
             vci.client_name AS client
         FROM vivid_cert_induction vci
-        LEFT JOIN vivid_people vp ON vci.peopleid = vp.loginid
+        LEFT JOIN vivid_people vp ON vci.peopleid = vp.peopleid
         WHERE vci.data_types = 'Certificates'
         ORDER BY vp.loginid;
     `;
@@ -436,7 +743,7 @@ app.get("/cleaners", (req, res) => {
         ) AS inductions
 
     FROM vivid_cert_induction vci
-    LEFT JOIN vivid_people vp ON vci.peopleid = vp.loginid
+    LEFT JOIN vivid_people vp ON vci.peopleid = vp.peopleid
     GROUP BY vp.loginid
     ORDER BY vp.loginid;
 `;

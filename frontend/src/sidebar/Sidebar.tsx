@@ -60,6 +60,12 @@ const Sidebar: React.FC = () => {
         { label: "Sub-site Daily Clean Shift", path: "/layout/SubSiteDailyCleanShift", icon: <MdOutlineAssignment /> },
         { label: "Sub-site Daily Clean Data", path: "/layout/SubSiteDailyCleanDataPage", icon: <MdOutlineAssignment /> },
     ]},
+    { label: "Config Data", path: "/layout/ConfigData", icon: <FaUsers />, hasSubmenu: true, subItems: [
+      { label: "Client Site Data", path: "/layout/ConfigSiteClientData" },
+      { label: "Configure Cleaners", path: "/layout/CleanersListPage" },
+     
+      { label: "Work Order Dashboard", path: "/layout/WorkOrderDashboard" },
+  ]},
     { label: "Logout", path: "/layout/Logout", icon: <FaSignOutAlt />, hasSubmenu: false },
   ];
 

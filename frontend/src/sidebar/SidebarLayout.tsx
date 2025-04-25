@@ -29,6 +29,9 @@ import SubSiteDailyCleanDataPage from "../Operations/SubSiteDailyCleanData";
 import LogoutPage from "../authentication/Logout";
 import NewCleanerChangePage from "../Cleaners/CleanerForm";
 import "./SidebarLayout.css";
+import ConfigSiteClientData from "../config/site_client";
+import CleanerConfigPage from "../config/configure_cleaner";
+import CleanersListPage from "../config/managecleanerconfig";
 
 const SidebarLayout = () => {
     return (
@@ -66,6 +69,14 @@ const SidebarLayout = () => {
                     <Route path="SubSiteDailyCleanDataPage" element={<SubSiteDailyCleanDataPage />} />
                     <Route path="Logout" element={<LogoutPage />} />
                     <Route path="NewCleanerChange" element={<NewCleanerChangePage />} />
+                    <Route path="ConfigSiteClientData" element={<ConfigSiteClientData />} />
+                    <Route path="CleanersListPage" element={<CleanersListPage/>}/>
+                    <Route path="CleanerConfigPage" element={<CleanerConfigPage/>}/>
+                    <Route path="CleanerConfigPage/:peopleid" element={<CleanerConfigPage />} />
+
+
+
+
                 </Routes>
 
                 {/* Default Page */}

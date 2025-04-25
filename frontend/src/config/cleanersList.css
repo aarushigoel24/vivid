@@ -1,0 +1,153 @@
+/* cleanersList.css */
+.cleaners-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #3182ce;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar input {
+  flex: 1;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.results-count {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.cleaners-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cleaners-table th,
+.cleaners-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.cleaners-table th {
+  background-color: #f7fafc;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.cleaners-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.btn-action {
+  background: none;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-action:hover {
+  background-color: #f7fafc;
+}
+
+.btn-action.edit {
+  border-color: #4299e1;
+  color: #4299e1;
+}
+
+.btn-action.edit:hover {
+  background-color: #ebf8ff;
+}
+
+.btn-action.delete {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.btn-action.delete:hover {
+  background-color: #fff5f5;
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: #4a5568;
+}
+
+.error {
+  padding: 2rem;
+  text-align: center;
+  color: #e53e3e;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .search-bar input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cleaners-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

@@ -218,4 +218,133 @@
 
  
 
-  
+ /* Container */
+.modern-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.form-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input Group */
+.input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 1rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: transparent;
+  outline: none;
+}
+
+.modern-label {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background: #fff;
+  padding: 0 0.25rem;
+  font-size: 0.9rem;
+  color: #666;
+  pointer-events: none;
+}
+
+/* Buttons */
+.modern-button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn-filled {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-filled:hover {
+  background-color: #0056b3;
+}
+
+.btn-outline {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #007bff;
+  background: transparent;
+  color: #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-outline:hover {
+  background: #e6f0ff;
+}
+
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 280px;
+  background-color: #ffffff;
+  border-left: 6px solid #007bff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 16px 20px;
+  z-index: 9999;
+  animation: slideIn 0.3s ease, fadeOut 0.5s ease 2.5s;
+  font-family: sans-serif;
+}
+
+.custom-alert.success {
+  border-left-color: #28a745;
+}
+
+.custom-alert.error {
+  border-left-color: #dc3545;
+}
+
+.custom-alert.warning {
+  border-left-color: #ffc107;
+}
+
+.custom-alert-message {
+  font-size: 14px;
+  color: #333;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}

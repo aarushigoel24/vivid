@@ -1,0 +1,231 @@
+.cleaner-config-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cleaner-config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cleaner-config-header h1 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #4a5568;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-back:hover {
+  background-color: #f7fafc;
+  color: #2d3748;
+}
+
+.cleaner-config-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.cleaner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.form-group input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  background-color: #f8fafc;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  background-color: white;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: #3182ce;
+}
+
+.btn-primary:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #edf2f7;
+}
+
+.alert {
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.alert-success {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+.alert-error {
+  background-color: #feb2b2;
+  color: #c53030;
+}
+
+.spinner {
+  border: 2px solid #fff;
+  border-top: 2px solid #4299e1;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+input[type="file"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.image-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto; /* This centers the container horizontally */
+  padding: 20px; /* Optional: adds some spacing around */
+}
+
+.preview-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid black;
+  display: block; /* Ensures proper centering */
+}
+
+.upload-icon-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  width: 100%;
+}
+
+/* Camera button styles */
+.upload-icon-btn {
+  background-color: grey;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  transition: all 0.2s ease;
+  border: none; /* Removes default button border */
+  outline: none; /* Removes focus outline (add proper focus styles if needed) */
+}
+
+.upload-icon-btn:hover {
+  background-color: #5a5a5a;
+  transform: scale(1.05);
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+
+
+
+
+
