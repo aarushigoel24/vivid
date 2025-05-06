@@ -1,5 +1,5 @@
 .wo-page {
-    font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, Tahoma, sans-serif;
     padding: 20px;
     background: #f0f0f0;
     color: #333;
@@ -232,7 +232,7 @@
   .table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, Tahoma, sans-serif;
     font-size: 13px;
   }
   

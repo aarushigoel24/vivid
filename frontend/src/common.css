@@ -4,7 +4,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto', Arial, Tahoma, sans-serif;
   color: #333;
 }
 
@@ -114,6 +114,7 @@
   
   .btn.danger {
     background-color: #dc3545;
+    padding: 5px 10px;
   }
   
   .btn.back {
@@ -121,7 +122,7 @@
   }
   
   .btn.add {
-    background-color: #28a745;
+    
   }
   
   /* Icon List */
@@ -313,7 +314,7 @@
   padding: 16px 20px;
   z-index: 9999;
   animation: slideIn 0.3s ease, fadeOut 0.5s ease 2.5s;
-  font-family: sans-serif;
+  font-family: 'Roboto', Arial, Tahoma, sans-serif;
 }
 
 .custom-alert.success {

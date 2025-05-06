@@ -39,7 +39,7 @@
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
     font-size: 0.85rem;
-    color: white;
+    color: black;
   }
   
   .legend-item.red { background-color: #dc3545; }

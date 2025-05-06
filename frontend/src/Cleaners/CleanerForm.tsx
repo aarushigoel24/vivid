@@ -87,8 +87,8 @@ const NewCleanerChangePage: React.FC = () => {
     if (!exists) {
       const cleanerToEdit: Cleaner = {
         peopleid: cleaner.peopleid,
-        firstname: cleaner.firstname,
-        lastname: cleaner.lastname,
+        firstname: cleaner.cleaner_firstname,
+        lastname: cleaner.cleaner_lastname,
         primary: cleaner.primary,
         keyholder: cleaner.keyholder,
         cleaner_lastname: cleaner.cleaner_lastname,
@@ -179,7 +179,37 @@ const NewCleanerChangePage: React.FC = () => {
           <div className="form-static"><label>Status</label><div className="status-draft">Draft</div></div>
         </div>
       </div>
-
+      <div className="section-card">
+            <div className="section-header">Associated Cleaners</div>
+            <div className="container">
+              {siteCleaners.length > 0 ? (
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Primary</th>
+                      <th>Keyholder</th>
+                      <th>Edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {siteCleaners.map(cleaner => (
+                      <tr key={cleaner.peopleid}>
+                        <td>{cleaner.cleaner_firstname}</td>
+                        <td>{cleaner.cleaner_lastname}</td>
+                        <td>{cleaner.primary ? "Yes" : "No"}</td>
+                        <td>{cleaner.keyholder ? "Yes" : "No"}</td>
+                        <td><button className="btn small" onClick={() => handleEditCleaner(cleaner)}>✏️ Edit</button></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <div>No cleaners assigned to this site.</div>
+              )}
+            </div>
+          </div>        
       {/* Cleaner Management */}
       {showForm && (
         <>
@@ -231,14 +261,15 @@ const NewCleanerChangePage: React.FC = () => {
                 {selectedCleaners.map((cleaner, index) => (
                   <div className="form-row" key={cleaner.peopleid}>
                     <div className="form-static"><strong>{cleaner.firstname} {cleaner.lastname}</strong></div>
+                   
                     <div className="form-group checkbox-group">
                       <label><input type="checkbox" checked={cleaner.primary} onChange={() => togglePrimary(index)} /> Primary</label>
                     </div>
                     <div className="form-group checkbox-group">
                       <label><input type="checkbox" checked={cleaner.keyholder} onChange={() => toggleKeyholder(index)} /> Keyholder</label>
                     </div>
-                    <div className="form-group">
-                      <button className="btn small danger" onClick={() => handleRemoveCleaner(cleaner)}>Remove</button>
+                    <div>
+                      <button className="btn small danger  remove-btn" onClick={() => handleRemoveCleaner(cleaner)}>🗑️ Remove</button>
                     </div>
                   </div>
                 ))}
@@ -246,37 +277,7 @@ const NewCleanerChangePage: React.FC = () => {
             )}
           </div>
 
-          <div className="section-card">
-            <div className="section-header">Associated Cleaners</div>
-            <div className="container">
-              {siteCleaners.length > 0 ? (
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Primary</th>
-                      <th>Keyholder</th>
-                      <th>Edit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {siteCleaners.map(cleaner => (
-                      <tr key={cleaner.peopleid}>
-                        <td>{cleaner.cleaner_firstname}</td>
-                        <td>{cleaner.cleaner_lastname}</td>
-                        <td>{cleaner.primary ? "Yes" : "No"}</td>
-                        <td>{cleaner.keyholder ? "Yes" : "No"}</td>
-                        <td><button className="btn small" onClick={() => handleEditCleaner(cleaner)}>✏️ Edit</button></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <div>No cleaners assigned to this site.</div>
-              )}
-            </div>
-          </div>
+          
 
           <div className="section-card">
             <div className="section-header">Change Cleaner Comments</div>

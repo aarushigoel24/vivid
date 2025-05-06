@@ -26,7 +26,8 @@ interface LiveStat {
 
 const CleanTrakRealtimeDataV2Page: React.FC = () => {
   const [stats, setStats] = useState<LiveStat[]>([]);
-
+   const [selectedSite, setSelectedSite] = useState("");
+    const [selectedState, setselectedState] = useState("");
   useEffect(() => {
     axios
       .get<LiveStat[]>("http://localhost:4000/livestats")
@@ -55,8 +56,58 @@ const CleanTrakRealtimeDataV2Page: React.FC = () => {
   };
 
   return (
+    
     <div className="container">
+      
       {/* Legends */}
+      <div className="wo-header">
+      <strong>⚙️ Operations {">"} 🕒 CleanTrak Real-time Data V2</strong>
+
+        </div>
+      <div className="section-card filter-section">
+        
+        <div className="filter-row" >
+        
+          <div className="form-group">
+          
+          <label className="static-label">{selectedSite || "Cleaner FirstName"}</label>
+      
+      
+          </div>
+          <div className="form-group">
+          
+          <label className="static-label">{selectedSite || "Cleaner LastName"}</label>
+      
+      
+          </div>
+          <div className="radio-group">
+  <label className="radio-group-heading">Sub-site scans</label>
+  <div className="radio-options">
+    <label><input type="radio" name="wo" /> All Records</label>
+    <label><input type="radio" name="wo" />Yes</label>
+    <label><input type="radio" name="wo" />No</label>
+  </div>
+</div>
+          
+          <div className="button-group">
+          <button className="btn blue">🔍Filter</button>
+          <button className="btn blue">📄Excel</button>
+          </div>
+        </div>
+      </div>
+      <div className="warning-section">
+        <div className="warning-banner">
+          <strong>Do not Share Photos on these reports</strong><br />
+          The personal information is required for the business activities of the Company and will not be used for other purposes
+        </div>
+
+        <div className="button-container">
+          <button className="cleantrak-button">
+            <i className="fas fa-th"></i> CleanTrak live
+          </button>
+        </div>
+      </div>
+      <div className="section-card filter-section">
       <div className="legends-container">
         <div className="legend-item">
           <FaExclamationTriangle className="legend-icon gps-icon" />
@@ -71,20 +122,6 @@ const CleanTrakRealtimeDataV2Page: React.FC = () => {
           <span>Wrong Cleaner</span>
         </div>
       </div>
-      
-      <div className="warning-section">
-        <div className="warning-banner">
-          <strong>Do not Share Photos on these reports</strong><br />
-          The personal information is required for the business activities of the Company and will not be used for other purposes
-        </div>
-
-        <div className="button-container">
-          <button className="cleantrak-button">
-            <i className="fas fa-th"></i> CleanTrak live
-          </button>
-        </div>
-      </div>
-
       {/* Table or message */}
       {stats.length === 0 ? (
         <p className="no-stats">No live stats available.</p>
@@ -152,6 +189,10 @@ const CleanTrakRealtimeDataV2Page: React.FC = () => {
           </table>
         </div>
       )}
+
+        
+      </div>
+      
     </div>
   );
 };

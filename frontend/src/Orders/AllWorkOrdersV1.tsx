@@ -42,7 +42,7 @@ const AllWorkOrdersV1Page = () => {
       <div className="wo-page">
         
         <div className="wo-header">
-          <span>🛒 Orders &gt; <strong>All Work Orders V1</strong></span>
+          <label>🛒 Orders &gt; <strong>All Work Orders V1</strong></label>
         </div>
   
         <div className="wo-form">
@@ -83,7 +83,7 @@ const AllWorkOrdersV1Page = () => {
               <input type="text" placeholder="Client reference" />
             </div>
             <div className="input-field">
-              <label><b>Request date from</b> <span className="required">*</span></label>
+              <label><b>Request date from</b>  </label>
               <input type="date" defaultValue="2025-03-01" />
             </div>
             <div className="input-field">
@@ -205,7 +205,7 @@ const AllWorkOrdersV1Page = () => {
                 <td className="job-description">{order.job_description}</td>
                 <td className="status-cell">
                   <span className={`status-badge status-${order.current_status.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {order.current_status}
+                   <strong> {order.current_status}</strong>
                   </span>
                   <div className="status-time">{order.status_time}</div>
                 </td>

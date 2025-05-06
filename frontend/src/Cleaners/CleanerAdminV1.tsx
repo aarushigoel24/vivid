@@ -83,16 +83,18 @@ const CleanerAdminV1Page = () => {
         </div>
       <div className="section-card filter-section">
         
-  <div className="filter-row">
+  <div className="filter-row" >
   
     <div className="form-group">
     
-<span>{selectedSite || "Cleaner FirstName"}</span>
+    <label className="static-label">{selectedSite || "Cleaner FirstName"}</label>
+
 
     </div>
     <div className="form-group">
     
-<span>{selectedSite || "Cleaner LastName"}</span>
+    <label className="static-label">{selectedSite || "Cleaner LastName"}</label>
+
 
     </div>
     <div className="button-group">
