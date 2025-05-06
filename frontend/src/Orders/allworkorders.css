@@ -1,0 +1,290 @@
+/* Main Container */
+.work-orders-container {
+  padding: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 24px;
+  color: #6c757d;
+}
+
+.breadcrumb-icon {
+  margin-right: 8px;
+}
+
+.breadcrumb-divider {
+  margin: 0 8px;
+  color: #adb5bd;
+}
+
+.breadcrumb-active {
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Filters Section */
+.filters-section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-select, .filter-input {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 180px;
+  background-color: #fff;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.filter-select:focus, .filter-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.checkbox-label, .radio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.date-input {
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-filter {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-filter:hover {
+  background-color: #0069d9;
+}
+
+.btn-excel {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-excel:hover {
+  background-color: #218838;
+}
+
+/* Table Container */
+.table-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.work-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.work-orders-table th {
+  background-color: #f1f3f5;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.work-orders-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: top;
+}
+
+.work-orders-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Table Cells */
+.job-number-cell {
+  font-weight: 500;
+}
+
+.job-number-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.search-btn:hover {
+  color: #007bff;
+}
+
+.job-description {
+  max-width: 250px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Status and Priority Badges */
+.status-badge, .priority-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.status-completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-in-progress {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-dispatched {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.priority-high {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.priority-medium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.priority-low {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-time {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* PDF Links */
+.pdf-links {
+  max-width: 200px;
+}
+
+.pdf-link-item {
+  margin-bottom: 4px;
+}
+
+.file-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.file-link:hover {
+  text-decoration: underline;
+}
+
+.file-icon {
+  flex-shrink: 0;
+}
+
+.price-cell {
+  font-weight: 500;
+  color: #28a745;
+}
+
+/* Inputs in table */
+.status-input, .notes-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.status-input:focus, .notes-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

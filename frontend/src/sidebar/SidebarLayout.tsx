@@ -34,12 +34,18 @@ import CleanerConfigPage from "../config/configure_cleaner";
 import CleanersListPage from "../config/managecleanerconfig";
 import createworkorderpage from "../config/createworkorderpage";
 import Createworkorderpage from "../config/createworkorderpage";
+import MainHeader from "../Orders/header";
 
 const SidebarLayout = () => {
     return (
         <div className="layout-container">
             {/* Sidebar */}
-            <Sidebar />
+            <div className="maheader">
+                <MainHeader />
+            </div>
+            <div className="sidebar">
+                <Sidebar />
+            </div>
 
             {/* Dynamic Content Area */}
             <div className="content">

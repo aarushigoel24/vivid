@@ -1,12 +1,13 @@
 /* Sidebar Container */
 .sidebar {
-    width: 260px;
+    width: 200px;
     background-color: #ffffff;
     color: #2c2f33;
     height: 100vh;
     padding: 10px;
     font-family: Arial, sans-serif;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    top: 60px;
 }
 
 /* Sidebar Title */

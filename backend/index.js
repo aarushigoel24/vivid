@@ -39,6 +39,19 @@ db.connect(err => {
     }
 });
 
+// Add this in your Express app (e.g., server.js or routes file)
+app.get("/workorders", (req, res) => {
+  const sql = "SELECT * FROM orders"; // Replace with your actual table name
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("DB Error:", err);
+      return res.status(500).json({ error: "Database error" });
+    }
+    res.json(results);
+  });
+});
+
+
 app.get("/vivid_sitepeople_assoc", (req, res) => {
     const { site } = req.query;
     db.query("SELECT * FROM vivid_sitepeople_assoc WHERE site_name = ?", [site], (err, results) => {
@@ -73,7 +86,45 @@ app.get("/vivid_sitepeople_assoc", (req, res) => {
     });
   });
   
+  app.post("/addWorkOrder", upload.single("file"), (req, res) => {
+    const {
+      selectedClient,
+      selectedSite,
+      workOrderType,
+      workOrderActivity,
+      priority,
+      completionTime,
+      description,
+      
+     
+    } = req.body;
   
+    
+    // Insert the work order data into the database
+    const query = `
+      INSERT INTO orders (client, site, order_type, activity, priority, required_completion_time, job_description)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+    db.query(
+      query,
+      [
+        selectedClient,
+        selectedSite,
+        workOrderType,
+        workOrderActivity,
+        priority,
+        completionTime,
+        description
+        
+      ],
+      (err, result) => {
+        if (err) {
+          return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: "Work Order added successfully!" });
+      }
+    );
+  });
      
 // Register Route
 app.post("/register", async (req, res) => {

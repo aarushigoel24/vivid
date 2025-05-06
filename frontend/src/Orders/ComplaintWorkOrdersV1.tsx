@@ -1,13 +1,13 @@
 import React from "react";
 import "../common.css"; // Import CSS for styling
 
-const ComplaintWorkOrdersV1Page = () => {
+const ComplaintWorkOrdersV1 = () => {
     return (
         <div className="cleanup-container">
-            <h1>ComplaintWorkOrdersV1</h1>
-            <p>This is the ComplaintWorkOrdersV1 page.</p>
+            <h1>PeriodicalWorkOrdersV1</h1>
+            <p>This is the PeriodicalWorkOrdersV1 page.</p>
         </div>
     );
 };
 
-export default ComplaintWorkOrdersV1Page;
+export default ComplaintWorkOrdersV1;

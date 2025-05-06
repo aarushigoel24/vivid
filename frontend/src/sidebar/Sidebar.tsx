@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
   };
 
   const menuItems: MenuItem[] = [
-    { label: "Live Stats", path: "/layout/livestats", icon: <FaChartBar />, hasSubmenu: false },
+    
     { label: "Profile", path: "/layout/profile", icon: <FaUser />, hasSubmenu: true, subItems: [
         { label: "Change Password", path: "/layout/ChangePassword", icon: <MdOutlineAssignment /> },
     ]},
@@ -71,7 +71,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className="sidebar">
-      <h2 className="sidebar-title">Menu</h2>
+      <h2 className="sidebar-title"></h2>
       <ul>
         {menuItems.map((item, index) => (
           <li key={index}>

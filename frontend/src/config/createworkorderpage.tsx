@@ -22,6 +22,7 @@ const CreateWorkOrderPage: React.FC = () => {
   const [workOrderActivity, setWorkOrderActivity] = useState<OptionType | null>(null);
   const [priority, setPriority] = useState<OptionType | null>(null);
   const [completionTime, setCompletionTime] = useState("");
+  const [file, setFile] = useState<File | null>(null);
   const [description, setDescription] = useState("");
   const [areaAffected, setAreaAffected] = useState("");
   const [specialNotes, setSpecialNotes] = useState("");
@@ -51,22 +52,42 @@ const CreateWorkOrderPage: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = {
-      selectedClient: selectedClient?.value || "",
-      selectedSite: selectedSite?.value || "",
-      workOrderType: workOrderType?.value || "",
-      workOrderActivity: workOrderActivity?.value || "",
-      priority: priority?.value || "",
-      completionTime,
-      description,
-      areaAffected,
-      specialNotes,
-    };
-    console.log("Form submitted:", formData);
-    alert("Work Order Submitted!");
+  
+    const formData = new FormData();
+    formData.append("selectedClient", selectedClient?.value || "");
+    formData.append("selectedSite", selectedSite?.value || "");
+    formData.append("workOrderType", workOrderType?.value || "");
+    formData.append("workOrderActivity", workOrderActivity?.value || "");
+    formData.append("priority", priority?.value || "");
+    formData.append("completionTime", completionTime);
+    formData.append("description", description);
+   
+   
+  
+    try {
+      // Sending the form data to the server
+      const response = await fetch("http://localhost:4000/addWorkOrder", {
+        method: "POST",
+        body: formData,
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        alert("Work Order Submitted!");
+        console.log(result); // Log the result for debugging
+      } else {
+        alert("Error submitting the work order.");
+        console.error(result);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There was an error with the submission.");
+    }
   };
+  
+
 
   const handleCancel = () => {
     setSelectedClient(null);
@@ -79,6 +100,7 @@ const CreateWorkOrderPage: React.FC = () => {
     setAreaAffected("");
     setSpecialNotes("");
     navigate(-1);
+    
   };
 
   const clientOptions: OptionType[] = Array.from(
@@ -95,9 +117,9 @@ const CreateWorkOrderPage: React.FC = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="collapsible-section">
-          <h2 className="collapsible-heading" onClick={() => setShowClassification(!showClassification)}>
+          <h3 className="collapsible-heading" onClick={() => setShowClassification(!showClassification)}>
             Work Order Classification
-          </h2>
+          </h3>
           {showClassification && (
             <div className="form-grid">
               <div className="form-group">
@@ -106,7 +128,10 @@ const CreateWorkOrderPage: React.FC = () => {
                 
                   options={clientOptions}
                   value={selectedClient}
-                  onChange={setSelectedClient}
+                  onChange={(client) => {
+                    setSelectedClient(client);
+                    setSelectedSite(null); // Clear selected site whenever client changes
+                  }}
                   placeholder="Select Client"
                 />
               </div>
@@ -153,6 +178,9 @@ const CreateWorkOrderPage: React.FC = () => {
                 <Select
                   options={[
                     { label: "Priority 4 – within 5 days", value: "Priority 4 – within 5 days" },
+                    { label: "Priority 3 – within 3 days", value: "Priority 3 – within 4 days" },
+                    { label: "Priority 2 – within 1 days", value: "Priority 2 – within 1 days" },
+                    { label: "Priority 1 – same day", value: "Priority 1 – same day" },
                   ]}
                   value={priority}
                   onChange={setPriority}
@@ -167,6 +195,14 @@ const CreateWorkOrderPage: React.FC = () => {
                   value={completionTime}
                   onChange={(e) => setCompletionTime(e.target.value)}
                   required
+                />
+              </div>
+              <div className="form-group">
+                <label>Supported File</label>
+                <input
+                  type="file"
+                  onChange={(e) => setFile(e.target.files?.[0] || null)} // Handle file change
+                  accept=".pdf,.docx,.jpg,.png"
                 />
               </div>
             </div>
