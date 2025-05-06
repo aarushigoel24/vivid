@@ -58,7 +58,7 @@ const groupByWeek = (contracts: Contract[]): Record<string, Contract[]> => {
 
 const TimeOnSiteProgressPage: React.FC = () => {
   const [contracts, setContracts] = useState<Contract[]>([]);
-
+  const [selectedSite, setSelectedSite] = useState("");
   useEffect(() => {
     axios
       .get<Contract[]>("http://localhost:4000/all_contracts")
@@ -126,8 +126,35 @@ const TimeOnSiteProgressPage: React.FC = () => {
 
   return (
     <div className="container">
+      <div className="wo-header">
+      <strong>⚙️ Operations {">"} ⏱️ Time On Site Progress</strong>
+
+        </div>
+        <div className="section-card filter-section">
+        
+  <div className="filter-row" >
+  
+    <div className="form-group">
+    
+    <label className="static-label">{selectedSite || "Select Client"}</label>
+
+
+    </div>
+    <div className="form-group">
+    
+    <label className="static-label">{selectedSite || "Select Site"}</label>
+
+
+    </div>
+    <div className="button-group">
+    <button className="btn blue">🔍Filter</button>
+    <button className="btn blue">📄Excel</button>
+    </div>
+  </div>
+</div>
       <div className="section-card">
-        <div className="section-header">Time On Site Progress</div>
+        
+        <div className="section-header"></div>
 
         <div className="table-wrapper">
           <table className="table">

@@ -235,7 +235,7 @@ const CreateWorkOrderPage: React.FC = () => {
           <button type="button" className="btn-cancel" onClick={handleCancel}>
             Cancel
           </button>
-          <button type="submit" className="btn-submit">
+          <button type="submit" className="btn-submit ">
             Submit
           </button>
         </div>

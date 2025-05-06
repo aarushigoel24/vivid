@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./cleanerConfig.css";
 
+
 interface CleanerFormData {
   firstname: string;
   lastname: string;
@@ -153,7 +154,7 @@ const CleanerConfigPage: React.FC = () => {
                 placeholder="Enter first name"
               />
             </div>
-
+          
             <div className="form-group">
               <label htmlFor="lastname">Last Name</label>
               <input

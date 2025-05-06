@@ -64,8 +64,8 @@ const Sidebar: React.FC = () => {
       { label: "Client Site Data", path: "/layout/ConfigSiteClientData" },
       { label: "Configure Cleaners", path: "/layout/CleanersListPage" },
      
-      { label: "Work Order Dashboards", path: "/layout/Createworkorderpage" },
-      { label: "Change Cleaner", path: "/layout/ChangeCleaner", icon: <MdWork /> },
+      { label: "Create New Workorder", path: "/layout/Createworkorderpage" },
+      { label: "Change Cleaner", path: "/layout/ChangeCleaner"},
   ]},
     { label: "Logout", path: "/layout/Logout", icon: <FaSignOutAlt />, hasSubmenu: false },
   ];
