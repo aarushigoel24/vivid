@@ -11,11 +11,11 @@
 /* Sidebar Styling - Updated */
 .sidebar {
     width: 250px;
-    height: calc(100vh - 60px); /* Account for header */
+    height: calc(100vh - 80px); /* Account for header */
     background-color: white;
     position: fixed;
     left: 0;
-    top: 60px; /* Start below header */
+    top: 80px; /* Start below header */
     padding: 20px;
     overflow-y: auto;
     scrollbar-width: thin;

@@ -1,24 +1,23 @@
 .mheader {
     background-color: #e2178f;
     color: white;
-    padding: 25px 0 15px 0;
-    width: 100vw;
+    padding: 15px 0; /* Reduced vertical padding */
+    width: 100%;
     min-width: 1200px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
     border-radius: 20px 20px 0 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     overflow: hidden;
-    margin: 0;
 }
 
 .mheader > div {
     display: flex;
     align-items: center;
     gap: 30px;
-    padding-left: 20px; /* Small left padding if needed */
+    padding: 0 20px;
     justify-content: flex-start;
 }
 
@@ -26,9 +25,8 @@
     display: flex;
     align-items: baseline;
     gap: 10px;
-    position: relative;
-    top: 5px;
     margin-right: auto;
+    /* Removed top: 5px as we don't need extra offset in thinner header */
 }
 
 .mheader h1 {
@@ -36,7 +34,7 @@
     font-size: 24px;
     font-weight: 700;
     white-space: nowrap;
-    letter-spacing: 4.5px;
+    letter-spacing: 5.5px;
 }
 
 .mheader h2 {
@@ -47,26 +45,26 @@
     opacity: 0.9;
 }
 
-/* Decorative top curves */
+/* Adjusted decorative curved edges for thinner header */
 .mheader::before,
 .mheader::after {
     content: '';
     position: absolute;
     top: 0;
-    width: 40px;
-    height: 40px;
+    width: 30px; /* Slightly smaller */
+    height: 30px; /* Slightly smaller */
     background: transparent;
     z-index: -1;
 }
 
 .mheader::before {
-    left: -20px;
+    left: -15px;
     border-radius: 0 0 20px 0;
-    box-shadow: 15px -15px 0 15px #e2178f;
+    box-shadow: 10px -10px 0 10px #e2178f; /* Smaller shadow */
 }
 
 .mheader::after {
-    right: -20px;
+    right: -15px;
     border-radius: 0 0 0 20px;
-    box-shadow: -15px -15px 0 15px #e2178f;
+    box-shadow: -10px -10px 0 10px #e2178f; /* Smaller shadow */
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../common.css";
 import "./newcleaner.css"; // added this line
-
+import { FaUserAlt } from "react-icons/fa";
 // Type definitions for cleaner data
 interface Certificate {
   type: string;
@@ -29,7 +29,9 @@ const CleanerAdminV1Page = () => {
   const [cleaners, setCleaners] = useState<Cleaner[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+    const [selectedClient, setSelectedClient] = useState("");
+  const [selectedSite, setSelectedSite] = useState("");
+  const [selectedState, setselectedState] = useState("");
   // Fetch cleaner data
   useEffect(() => {
     fetch("http://localhost:4000/cleaners")
@@ -74,9 +76,34 @@ const CleanerAdminV1Page = () => {
 
   return (
     <div className="container">
-      <h1 className="page-title">Cleaner Admin</h1>
+      <h1 className="page-title"></h1>
+      <div className="wo-header">
+      <strong>🧹 My Cleaner & 👦 Cleaner Admin V1</strong>
 
-      <table className="table table-striped">
+        </div>
+      <div className="section-card filter-section">
+        
+  <div className="filter-row">
+  
+    <div className="form-group">
+    
+<span>{selectedSite || "Cleaner FirstName"}</span>
+
+    </div>
+    <div className="form-group">
+    
+<span>{selectedSite || "Cleaner LastName"}</span>
+
+    </div>
+    <div className="button-group">
+    <button className="btn blue">🔍Filter</button>
+    <button className="btn blue">📄Excel</button>
+    </div>
+  </div>
+</div>
+<div className="section-card filter-section">
+
+<table className="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -91,7 +118,7 @@ const CleanerAdminV1Page = () => {
               <td>
                 <strong>{cleaner.name}</strong>
                 <br />
-                <span className="cleaner-id">ID: {cleaner.id}</span>
+                <label className="cleaner-id">ID: {cleaner.id}</label>
               </td>
               <td>
                 {Array.isArray(cleaner.certificates) && cleaner.certificates.length > 0 ? (
@@ -146,6 +173,9 @@ const CleanerAdminV1Page = () => {
           ))}
         </tbody>
       </table>
+
+</div>
+      
     </div>
   );
 };

@@ -31,6 +31,10 @@ const CleanerScheduleTable = () => {
   const [cleanerData, setCleanerData] = useState<CleanerSchedule[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedClient, setSelectedClient] = useState("");
+const [selectedSite, setSelectedSite] = useState("");
+const [selectedState, setselectedState] = useState("");
+
 
   useEffect(() => {
     const fetchCleanerChanges = async () => {
@@ -81,14 +85,57 @@ const CleanerScheduleTable = () => {
   if (error) return <p>{error}</p>;
 
   return (
+    
     <div className="cleanup-container">
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", fontSize: "14px", marginBottom: "8px" }}>
+   
+
+
+
+      <div className="container">
+      <div className="wo-header">
+      <span><strong>🏢 My Clients & Sites V1</strong></span>
+
+        </div>
+      <div className="section-card filter-section">
+        
+  <div className="filter-row">
+    <div className="form-group">
+      <label>Client</label>
+      <select value={selectedClient} onChange={(e) => setSelectedClient(e.target.value)}>
+        <option value="">select client</option>
+        {[...new Set(cleanerData.map(d => d.client))].map((client, idx) => (
+          <option key={idx} value={client}>{client}</option>
+        ))}
+      </select>
+    </div>
+    <div className="form-group">
+      <label>Site</label>
+      <select value={selectedSite} onChange={(e) => setSelectedSite(e.target.value)}>
+        <option value="">select site</option>
+        {[...new Set(cleanerData.flatMap(d => d.site))].map((site, idx) => (
+          <option key={idx} value={site}>{site}</option>
+        ))}
+      </select>
+    </div>
+    <div className="form-group">
+      <label>State</label>
+      <select value={selectedState} onChange={(e) => setselectedState(e.target.value)}>
+        <option value="">select state</option>
+       
+      </select>
+    </div>
+    <div className="button-group">
+    <button className="btn blue"><span role="img">🔍</span> Filter</button>
+    <button className="btn blue"><span role="img">📄</span> Excel</button>
+    </div>
+  </div>
+</div>
+<div className="section-card table-section">
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", fontSize: "14px", marginBottom: "8px" }}>
         <div><FaFlag className="flag-icon" /> Primary Cleaner</div>
         <div><FaKey className="key-icon" /> Signed For Key</div>
       </div>
-
-      <div className="container">
-        <table className="table">
+<table className="table">
           <thead>
             <tr>
               <th>Client</th>
@@ -132,6 +179,10 @@ const CleanerScheduleTable = () => {
             ))}
           </tbody>
         </table>
+
+
+</div>
+        
       </div>
     </div>
   );

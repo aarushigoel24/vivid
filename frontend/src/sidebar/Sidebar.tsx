@@ -40,7 +40,7 @@ const Sidebar: React.FC = () => {
         { label: "Cleaner Admin", path: "/layout/CleanerAdminV1", icon: <MdWork /> },
         { label: "Cleaner Certificates", path: "/layout/CleanerCertificateV1", icon: <MdWork /> },
         { label: "Cleaner Induction", path: "/layout/CleanerInductionV1", icon: <MdWork /> },
-        { label: "Change Cleaner", path: "/layout/ChangeCleaner", icon: <MdWork /> },
+        
     ]},
     { label: "Orders", path: "/layout/Orders", icon: <FaUsers />, hasSubmenu: true, subItems: [
         { label: "Periodical Work Orders", path: "/layout/PeriodicalWorkOrdersV1" },
@@ -65,6 +65,7 @@ const Sidebar: React.FC = () => {
       { label: "Configure Cleaners", path: "/layout/CleanersListPage" },
      
       { label: "Work Order Dashboards", path: "/layout/Createworkorderpage" },
+      { label: "Change Cleaner", path: "/layout/ChangeCleaner", icon: <MdWork /> },
   ]},
     { label: "Logout", path: "/layout/Logout", icon: <FaSignOutAlt />, hasSubmenu: false },
   ];
@@ -77,10 +78,10 @@ const Sidebar: React.FC = () => {
           <li key={index}>
             <div className={`sidebar-header ${expanded[item.label] ? "active" : ""}`}>
               <NavLink to={item.path} className="sidebar-link">
-                {item.icon} <span>{item.label}</span>
+                {item.icon} <label>{item.label}</label>
               </NavLink>
               {item.hasSubmenu && (
-                <span
+                <label
                   className="toggle-icon"
                   onClick={(e) => {
                     e.preventDefault();
@@ -88,7 +89,7 @@ const Sidebar: React.FC = () => {
                   }}
                 >
                   {expanded[item.label] ? <FaMinus /> : <FaPlus />}
-                </span>
+                </label>
               )}
             </div>
             {item.hasSubmenu && expanded[item.label] && (
