@@ -32,6 +32,8 @@ import "./SidebarLayout.css";
 import ConfigSiteClientData from "../config/site_client";
 import CleanerConfigPage from "../config/configure_cleaner";
 import CleanersListPage from "../config/managecleanerconfig";
+import createworkorderpage from "../config/createworkorderpage";
+import Createworkorderpage from "../config/createworkorderpage";
 
 const SidebarLayout = () => {
     return (
@@ -73,7 +75,7 @@ const SidebarLayout = () => {
                     <Route path="CleanersListPage" element={<CleanersListPage/>}/>
                     <Route path="CleanerConfigPage" element={<CleanerConfigPage/>}/>
                     <Route path="CleanerConfigPage/:peopleid" element={<CleanerConfigPage />} />
-
+                    <Route path="createworkorderpage" element={<Createworkorderpage/>}/>
 
 
 
