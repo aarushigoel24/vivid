@@ -20,9 +20,9 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:4000/login", user);
-      alert(response.data.message);
+      //alert(response.data.message);
       localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      navigate("/layout/profile");
     } catch (error: any) {
       alert("Error: " + (error.response?.data?.error || "Unexpected error"));
     }
