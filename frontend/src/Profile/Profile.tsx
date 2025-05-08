@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../common.css";
 import "./profile.css";
-import { CompliancePieChart } from "./piechart";
+import Compliance3DPieChart from "./piechart";
+import TimeOnSiteDiscrepancyChart from "./timeonsitechart";
+import CleaningStatisticChart from "./cleaningStatsChart";
+import SiteDistributionMap from "./cleaningStatsChart";
+
+
 
 const ProfilePage = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -34,7 +39,21 @@ const ProfilePage = () => {
                 </div>
                 <div className="top-line" />
                
-      <CompliancePieChart />
+                <div className="chart-container">
+                <div className="chart-container">
+                    <div className="chart-row">
+                       <Compliance3DPieChart/>
+                       <TimeOnSiteDiscrepancyChart/>
+                       <SiteDistributionMap/>
+                    </div>
+                    <div className="chart-row">
+                      
+                        
+                    </div>
+                </div>
+
+</div>
+
                 
                
             </div>

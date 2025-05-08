@@ -25,6 +25,41 @@
 color: navy;
 font-weight: 600;
 }
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.chart-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.dashboard-charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+  }
+  
+  .chart-wrapper {
+    flex: 1 1 500px;
+    max-width: 700px;
+  }
+  
+.chart-row > div {
+    flex: 1;
+    min-height: 300px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 .green-letter{
     color:teal;
     font-size: 14px;
