@@ -5,6 +5,7 @@ import Compliance3DPieChart from "./piechart";
 import TimeOnSiteDiscrepancyChart from "./timeonsitechart";
 import CleaningStatisticChart from "./cleaningStatsChart";
 import SiteDistributionMap from "./cleaningStatsChart";
+import RegularCleanSitesMap from "./RegularSiteMap";
 
 
 
@@ -45,9 +46,10 @@ const ProfilePage = () => {
                        <Compliance3DPieChart/>
                        <TimeOnSiteDiscrepancyChart/>
                        <SiteDistributionMap/>
+                       
                     </div>
                     <div className="chart-row">
-                      
+                    <RegularCleanSitesMap/>
                         
                     </div>
                 </div>
