@@ -12,7 +12,9 @@ const options = {
       beta: 0,   // Rotation angle of the pie
       depth: 50, // Depth of the pie (how 3D it looks)
       viewDistance: 25, // Distance of the pie from the viewer
-    }
+    },
+    width: 400,  // Width of the pie chart
+    height: 400, // Height of the pie chart
   },
   title: {
     text: 'CleanTrak Compliance',
