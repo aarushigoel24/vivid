@@ -1,65 +1,68 @@
 import React from 'react';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import mapDataAU from '@highcharts/map-collection/countries/au/au-all.geo.json';
+import './AustraliaMap.css';
 
+const AustraliaMap = () => {
+  // State data from your requirements
+  const stateData = [
+    { id: 'VIC', name: 'Victoria', value: 0 },
+    { id: 'NSW', name: 'New South Wales', value: 3 },
+    { id: 'NT', name: 'Northern Territory', value: 0 },
+    { id: 'WA', name: 'Western Australia', value: 0 },
+    { id: 'SA', name: 'South Australia', value: 0 },
+    { id: 'QLD', name: 'Queensland', value: 0 },
+    { id: 'TAS', name: 'Tasmania', value: 0 }
+  ];
 
+  // Color coding function
+  const getColor = (value: number) => {
+    return value > 40 ? '#FF0000' :
+           value > 20 ? '#FF8000' :
+           value > 10 ? '#FFDD00' :
+           value > 0 ? '#FFFF00' :
+                       '#EFEFFF';
+  };
 
-const data: [string, number | null][] = [
-  ['au-vic', 49],
-  ['au-nsw', 1],
-  ['au-nt', 3],
-  ['au-tas', 0],
-  ['au-qld', 0],
-  ['au-wa', 0],
-  ['au-sa', 0],
-  ['au-act', 0],
-];
+  // Position of state labels on the map image
+  const labelPositions = {
+    VIC: { top: '65%', left: '30%' },
+    NSW: { top: '55%', left: '40%' },
+    NT: { top: '30%', left: '45%' },
+    WA: { top: '40%', left: '15%' },
+    SA: { top: '55%', left: '25%' },
+    QLD: { top: '40%', left: '50%' },
+    TAS: { top: '80%', left: '40%' }
+  };
 
-const options: Highcharts.Options = {
-  chart: {
-    map: mapDataAU as any,
-  },
-  title: {
-    text: 'Current Regular Clean Sites by State',
-    align: 'center',
-    style: {
-      color: '#d2691e',
-      fontWeight: 'bold',
-    },
-  },
-  mapNavigation: {
-    enabled: true,
-    buttonOptions: {
-      verticalAlign: 'bottom',
-    },
-  },
-  colorAxis: {
-    min: 0,
-    stops: [
-      [0, '#EFEFFF'],
-      [0.5, '#FFDD00'],
-      [1, '#FF0000'],
-    ],
-  },
-  series: [
-    {
-      type: 'map',
-      name: 'Clean Sites',
-      data: data,
-      dataLabels: {
-        enabled: true,
-        format: '{point.name}, {point.value}',
-      },
-      tooltip: {
-        pointFormat: '{point.name}: {point.value}',
-      },
-    },
-  ],
+  return (
+    <div className="map-container">
+      <h2 className="map-title">Current Regular Clean Sites by State</h2>
+      
+      <div className="map-wrapper">
+        <img 
+          src="https://www.freeworldmaps.net/australia/australia-map-editable.jpg" 
+          alt="Australia Map" 
+          className="map-image"
+        />
+        
+        {/* State value indicators */}
+        {stateData.map(state => (
+          <div 
+            key={state.id}
+            className="state-value"
+            style={{
+              top: labelPositions[state.id as keyof typeof labelPositions].top,
+              left: labelPositions[state.id as keyof typeof labelPositions].left,
+              backgroundColor: getColor(state.value)
+            }}
+          >
+            {state.value}
+          </div>
+        ))}
+      </div>
+
+      
+    </div>
+  );
 };
 
-const RegularCleanSitesMap: React.FC = () => {
-  return <HighchartsReact highcharts={Highcharts} constructorType={'mapChart'} options={options} />;
-};
-
-export default RegularCleanSitesMap;
+export default AustraliaMap;

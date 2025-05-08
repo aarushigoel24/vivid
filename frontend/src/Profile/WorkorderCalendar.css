@@ -1,0 +1,70 @@
+.calendar-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .calendar-title {
+    color: rgb(199, 95, 0);
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 1px solid #009fe3;
+  }
+  
+  .calendar-table th,
+  .calendar-table td {
+    border: 1px dotted #009fe3;
+    width: 14.28%;
+    height: 70px;
+    vertical-align: top;
+    position: relative;
+  }
+  
+  .status-label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .day-number {
+    background-color: #d0e8fa;
+    color: #1e88e5;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 4px;
+  }
+  
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  
+  .legend-item {
+    padding: 6px 12px;
+    color: black;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  

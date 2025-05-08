@@ -6,7 +6,9 @@
     "module": "ESNext",
     "jsx": "react-jsx",
     "skipLibCheck": true,
-
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

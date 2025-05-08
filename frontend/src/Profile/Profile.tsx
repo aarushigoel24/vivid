@@ -6,6 +6,8 @@ import TimeOnSiteDiscrepancyChart from "./timeonsitechart";
 import CleaningStatisticChart from "./cleaningStatsChart";
 import SiteDistributionMap from "./cleaningStatsChart";
 import RegularCleanSitesMap from "./RegularSiteMap";
+import AustraliaMap from "./RegularSiteMap";
+import WorkOrderStatusCalendar from "./workordersite";
 
 
 
@@ -39,18 +41,19 @@ const ProfilePage = () => {
                     <div><span className="blue-letter">Welcome</span><span className="green-letter"> Neeraj Singh</span> </div>
                 </div>
                 <div className="top-line" />
-               
-                <div className="chart-container">
+             
                 <div className="chart-container">
                     <div className="chart-row">
                        <Compliance3DPieChart/>
                        <TimeOnSiteDiscrepancyChart/>
                        <SiteDistributionMap/>
+                   
                        
                     </div>
                     <div className="chart-row">
-                    <RegularCleanSitesMap/>
-                        
+                
+                   < AustraliaMap/>
+                    <WorkOrderStatusCalendar/>
                     </div>
                 </div>
 
@@ -59,7 +62,7 @@ const ProfilePage = () => {
                 
                
             </div>
-        </div>
+   
     );
 };
 
