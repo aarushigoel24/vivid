@@ -9,6 +9,7 @@ import SidebarLayout from "./sidebar/SidebarLayout";
 import ChangeCleanerPage from "./Cleaners/ChangeCleaner";
 import NewCleanerChangeForm from "./Cleaners/CleanerForm";
 import ViewOnScreenPage from "./Operations/ViewOnScreen";
+import PeopleIdPage from "./Cleaners/peopleidpage";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/change-cleaner" element={<ChangeCleanerPage />} />
                 <Route path="/status-screen" element={<ViewOnScreenPage/>} />
                 <Route path="/change-cleaner/new" element={<NewCleanerChangeForm />} />
+                  <Route path="cleaner/:cleanerId" element={<PeopleIdPage />} />
             </Routes>
         </Router>
     );

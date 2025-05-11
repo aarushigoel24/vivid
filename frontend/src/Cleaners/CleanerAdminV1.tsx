@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../common.css";
 import "./newcleaner.css"; // added this line
 import { FaUserAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 // Type definitions for cleaner data
 interface Certificate {
   type: string;
@@ -118,10 +119,14 @@ const CleanerAdminV1Page = () => {
           {cleaners.map((cleaner) => (
             <tr key={cleaner.id}>
               <td>
-                <strong>{cleaner.name}</strong>
-                <br />
-                <label className="cleaner-id">ID: {cleaner.id}</label>
-              </td>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <Link to={`/cleaner/${cleaner.id}`} className="cleaner-name-link">
+  <strong>{cleaner.name}</strong>
+</Link>
+    <label className="cleaner-id">{cleaner.id}</label>
+  </div>
+</td>
+
               <td>
                 {Array.isArray(cleaner.certificates) && cleaner.certificates.length > 0 ? (
                   <ul className="nested-list">

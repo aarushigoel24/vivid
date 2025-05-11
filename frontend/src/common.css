@@ -1,9 +1,9 @@
 /* Layout & Container */
 
 .container {
-  max-width: 1200px;
+  max-width: 1350px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 14px;
   font-family: 'Roboto', Arial, Tahoma, sans-serif;
   color: #333;
 }

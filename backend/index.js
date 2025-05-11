@@ -756,7 +756,7 @@ app.get("/cleaners", (req, res) => {
     const query = `
     SELECT 
         
-        vp.loginid AS id,
+        vp.cleanerid AS id,
         CONCAT(vp.firstname, ' ', vp.lastname) AS name,
 
         -- Aggregating Certificates
