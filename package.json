@@ -13,6 +13,8 @@
     },
     "dependencies": {
         "@highcharts/map-collection": "^2.3.0",
+        "@mui/icons-material": "^7.1.0",
+        "@mui/material": "^7.1.0",
         "@react-google-maps/api": "^2.20.6",
         "@react-leaflet/core": "^2.1.0",
         "@react-spring/web": "^9.7.5",
