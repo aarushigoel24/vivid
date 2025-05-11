@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Sidebar from '../sidebar/Sidebar';
 import "./PeopleIdPage.css";
 import SidebarLayout from '../sidebar/SidebarLayout';
-
+import EditIcon from '@mui/icons-material/Edit';
 
 const PeopleIdPage: React.FC = () => {
   const { cleanerId } = useParams<{ cleanerId: string }>();
@@ -86,9 +86,14 @@ const PeopleIdPage: React.FC = () => {
           <section className="section-card">
             <h3>My Updated Cleaner Inductions</h3>
              <div className="page-header-buttons">
-          <button className="btn edit">
-  ✏️ Edit / Add Induction
-</button>
+             <button className="btn edit">
+      <EditIcon style={{ 
+        color: 'white',
+        marginRight: 8,
+        fontSize: 18
+      }}/>
+      Edit / Add Induction
+    </button>
 
              </div>
          
