@@ -94,7 +94,7 @@ const AddScheduleForm: React.FC = () => {
       </div>
     ))}
   </div>
-
+    
   <button type="submit" className="submit-btn">Submit Schedule</button>
 </form>
 
