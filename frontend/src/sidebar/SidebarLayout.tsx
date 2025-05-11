@@ -36,6 +36,7 @@ import createworkorderpage from "../config/createworkorderpage";
 import Createworkorderpage from "../config/createworkorderpage";
 import MainHeader from "../Orders/header";
 import PeopleIdPage from "../Cleaners/peopleidpage";
+import AddScheduleForm from "../config/addNewSchedule";
 
 const SidebarLayout = () => {
     return (
@@ -85,7 +86,7 @@ const SidebarLayout = () => {
                     <Route path="createworkorderpage" element={<Createworkorderpage/>}/>
                     <Route path="/cleaner/:cleanerId" element={<PeopleIdPage />} />
 
-
+                    <Route path="AddScheduleForm" element={<AddScheduleForm/>}/>
 
 
                 </Routes>

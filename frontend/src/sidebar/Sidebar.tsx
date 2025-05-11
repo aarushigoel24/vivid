@@ -66,6 +66,7 @@ const Sidebar: React.FC = () => {
      
       { label: "Create New Workorder", path: "/layout/Createworkorderpage" },
       { label: "Change Cleaner", path: "/layout/ChangeCleaner"},
+      { label: "Create Schedule", path: "/layout/AddScheduleForm"},
   ]},
     { label: "Logout", path: "/layout/Logout", icon: <FaSignOutAlt />, hasSubmenu: false },
   ];

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Sidebar from '../sidebar/Sidebar';
 import "./PeopleIdPage.css";
 import SidebarLayout from '../sidebar/SidebarLayout';
-import EditIcon from '@mui/icons-material/Edit';
+
 
 const PeopleIdPage: React.FC = () => {
   const { cleanerId } = useParams<{ cleanerId: string }>();
@@ -15,11 +15,62 @@ const PeopleIdPage: React.FC = () => {
       </div>
 
       <div className="content">
+         
         <div className="cleaner-admin-wrapper">
+            <div className="wo-header">
+      <strong><span style={{ marginRight: '4px', display: 'inline-block', verticalAlign: 'middle' }}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="orange" viewBox="0 0 24 24">
+    <path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.01 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+  </svg>
+</span>
+My Cleaner  <span style={{ color: '#888' }}>&gt;</span>
+ 👦 My Cleaner Admin V1</strong>
+
+        </div>
           <div className="page-header-buttons">
-            <button className="btn blue">Back</button>
-            <button className="btn blue">Delete this cleaner</button>
-            <button className="btn blue">Submit to Vivid</button>
+         <button className="btn blue">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="white"
+    viewBox="0 0 24 24"
+    style={{ marginLeft: '18px', verticalAlign: 'middle' }}
+  >
+    <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z" />
+  </svg>
+  Back
+</button>
+
+
+          <button className="btn blue">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="white"
+    viewBox="0 0 24 24"
+    style={{ marginLeft: '18px', verticalAlign: 'middle' }}
+  >
+    <path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 1 0-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 0 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/>
+  </svg>
+  Delete this cleaner
+</button>
+
+            <button className="btn blue">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="white"
+    viewBox="0 0 24 24"
+    style={{ marginLeft: '18px', verticalAlign: 'middle' }}
+  >
+    <path d="M9 16.17L4.83 12 3.41 13.41 9 19l12-12-1.41-1.41z" />
+  </svg>
+  Submit to Vivid
+</button>
+
           </div>
 
           <section className="section-card">
@@ -77,7 +128,14 @@ const PeopleIdPage: React.FC = () => {
               </tbody>
             </table>
             <div className="page-header-buttons">
-  <button className="btn edit">Edit / Add Certificate</button>
+     <button className="btn edit">
+  <span style={{ marginLeft: '18px', display: 'inline-block', verticalAlign: 'middle' }}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+    <path d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+  </svg>
+</span>
+  Edit / Add Certificate
+</button>  
 
             </div>
           
@@ -86,25 +144,37 @@ const PeopleIdPage: React.FC = () => {
           <section className="section-card">
             <h3>My Updated Cleaner Inductions</h3>
              <div className="page-header-buttons">
-             <button className="btn edit">
-      <EditIcon style={{ 
-        color: 'white',
-        marginRight: 8,
-        fontSize: 18
-      }}/>
-      Edit / Add Induction
-    </button>
+              <button className="btn edit">
+  <span style={{ marginLeft: '18px', display: 'inline-block', verticalAlign: 'middle' }}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+    <path d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+  </svg>
+</span>
+  Edit / Add Induction
+</button>   
 
              </div>
          
           </section>
-
+    
           <section className="section-card">
-            <h3>Notes From VIVID</h3>
+            <label className="viewherder1">Notes From VIVID</label>
           </section>
 
           <section className="section-card">
             <h3>My Notes To VIVID</h3>
+            <div className="page-header-buttons">
+             <button className="btn edit">
+  <span style={{ marginLeft: '38px', display: 'inline-block', verticalAlign: 'middle' }}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 0 0 2 2h18c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2zm0 16H3V5h18v14zM5 7h14v2H5V7zm0 4h10v2H5v-2zm0 4h7v2H5v-2z"/>
+    </svg>
+  </span>
+  New Notes
+</button>
+  
+
+             </div>
           </section>
         </div>
       </div>
