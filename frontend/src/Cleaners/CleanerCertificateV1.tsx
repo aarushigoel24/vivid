@@ -43,6 +43,7 @@ const CleanerCertificateV1Page = () => {
   useEffect(() => {
     fetchCertificates();
     fetchClientSites();
+    fetchCleaners();
   }, []);
 
   const fetchCertificates = () => {
@@ -73,15 +74,22 @@ const CleanerCertificateV1Page = () => {
       });
   };
 
-  axios.get("http://localhost:4000/cleanerList")
-  .then((response) => {
-    if (response.data.success) {
-      setPeopleList(response.data.data);
-    }
-  })
-  .catch((error) => {
-    console.error("Error fetching people:", error);
-  });
+  const fetchCleaners = () => {
+  axios
+    .get("http://localhost:4000/cleanerList")
+    .then((response) => {
+      if (response.data.success) {
+        setPeopleList(response.data.data);
+      } else {
+        console.error("Failed to fetch cleaner list:", response.data.error);
+        setError("Failed to fetch cleaner list.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching people:", error);
+      setError("Error fetching people.");
+    });
+};
 
 
   const handleDelete = (id: string) => {

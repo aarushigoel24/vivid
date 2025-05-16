@@ -12,6 +12,17 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     overflow: hidden;
 }
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Adjust space between elements */
+  font-size: 16px;
+  
+  white-space: nowrap;
+  color: white;
+}
+
 
 .mheader > div {
     display: flex;

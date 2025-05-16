@@ -56,7 +56,7 @@ const [selectedState, setselectedState] = useState("");
                 email: item.manager_email,
               },
               cleaners: [],
-              schedule: item.schedule || [0, 0, 0, 2, 0, 0, 4], // fallback
+              schedule: item.schedule || [1.5, 2, 0.7, 2, 0.3, 0.8, 4], // fallback
             };
           }
 

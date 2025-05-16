@@ -80,7 +80,7 @@ app.get("/vivid_sitepeople_assoc", (req, res) => {
       VALUES (?, ?, ?, ?, ?,?,?)
     `;
   
-    db.query(query, [firstname, lastname, email, phone, loginid,password,'https://th.bing.com/th/id/OIP.FB_zZf1kLuKf9_i2FUCESgHaLH?rs=1&pid=ImgDetMain'], (err, result) => {
+    db.query(query, [firstname, lastname, email, phone, loginid,password,'https://plus.unsplash.com/premium_photo-1689568158814-3b8e9c1a9618?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uYXxlbnwwfHwwfHx8MA%3D%3D'], (err, result) => {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ message: "Cleaner added successfully" });
     });

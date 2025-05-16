@@ -10,6 +10,22 @@
     top: 60px;
 }
 
+/* Main menu active link - applies when main item or any subitem is active */
+.sidebar-link.active {
+    color: red;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    border-left: 4px solid red;
+}
+
+/* Submenu active link */
+.submenu-link.active {
+    font-weight: bold;
+    color: orange;
+    background-color: #fdf3e7;
+    border-left: 4px solid orange;
+}
+
 /* Sidebar Title */
 .sidebar-title {
     text-align: center;
@@ -31,7 +47,7 @@ ul {
     align-items: center;
     justify-content: space-between;
     padding: 12px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     color: #333;
@@ -52,11 +68,13 @@ ul {
     gap: 10px;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
+    width: 100%;
+    padding: 8px 0;
 }
 
 /* Hover Effect */
-.sidebar-link:hover {
-    color: red;
+.sidebar-link:hover:not(.active) {
+    color: #666;
 }
 
 /* Toggle Icons */
@@ -65,6 +83,7 @@ ul {
     cursor: pointer;
     color: #666;
     transition: color 0.3s ease-in-out;
+    padding: 8px;
 }
 
 .toggle-icon:hover {
@@ -74,7 +93,8 @@ ul {
 /* Submenu Styling */
 .sidebar-submenu {
     padding-left: 20px; 
-    margin-left: 10px;
+    margin-left: 30px;
+    border-left: 1px solid #eee;
 }
 
 .sidebar-submenu li {
@@ -88,16 +108,13 @@ ul {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 5px 40px;
+    padding: 5px 10px;
     font-size: 14px;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px;
 }
 
-/* Active submenu link */
-.submenu-link.active {
-    font-weight: bold;
-    color: orange;
+.submenu-link:hover:not(.active) {
+    background-color: #f5f5f5;
+    color: #333;
 }
-
-/* Hover Effect */
-
