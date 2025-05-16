@@ -25,6 +25,10 @@ const options = {
   },
   subtitle: {
     text: 'Wednesday 07 May 25',
+    style: {
+      color: '#c75f00', // Title color
+     
+    },
   },
   plotOptions: {
     pie: {

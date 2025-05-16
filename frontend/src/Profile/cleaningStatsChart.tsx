@@ -13,6 +13,10 @@ const CleaningStatisticChart: React.FC = () => {
     },
     subtitle: {
       text: '01 May 2025 - 08 May 2025',
+       style: {
+      color: '#c75f00', // Title color
+     
+    },
     },
     xAxis: {
       categories: [

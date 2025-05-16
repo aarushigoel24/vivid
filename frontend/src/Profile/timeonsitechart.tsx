@@ -13,6 +13,10 @@ const TimeOnSiteDiscrepancyChart: React.FC = () => {
     },
     subtitle: {
       text: 'Thursday 08 May 25',
+       style: {
+      color: '#c75f00', // Title color
+     
+    },
     },
     xAxis: {
       categories: ['D<=50%', '80%<=D>50%', '120%<=D>90%', '200%<=D>120%', 'D>200%'],

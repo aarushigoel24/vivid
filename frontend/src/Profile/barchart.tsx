@@ -32,7 +32,7 @@ const options = {
   subtitle: {
     text: 'Wednesday 07 May 25',
     style: {
-      color: '#CB4335',
+      color: '#c75f00',
       fontSize: '16px',
     },
   },
