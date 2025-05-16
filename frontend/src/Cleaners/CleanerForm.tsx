@@ -181,7 +181,7 @@ const NewCleanerChangePage: React.FC = () => {
       </div>
       <div className="section-card">
             <div className="section-header">Associated Cleaners</div>
-            <div className="container">
+            <div className="container1">
               {siteCleaners.length > 0 ? (
                 <table className="table">
                   <thead>

@@ -124,7 +124,7 @@ const AddScheduleForm: React.FC = () => {
       <h2>Add Site Schedule</h2>
 
       <div className="form-grid">
-        <div className="form-row">
+        <div className="form-row1">
           <label>Customer</label>
           <select
             name="customer"
@@ -140,7 +140,7 @@ const AddScheduleForm: React.FC = () => {
           </select>
         </div>
 
-        <div className="form-row">
+        <div className="form-row1">
           <label>Site</label>
           <select
             name="site"
@@ -157,7 +157,7 @@ const AddScheduleForm: React.FC = () => {
           </select>
         </div>
 
-        <div className="form-row">
+        <div className="form-row1">
           <label>Start Date</label>
           <input
             type="date"
@@ -167,7 +167,7 @@ const AddScheduleForm: React.FC = () => {
           />
         </div>
 
-        <div className="form-row">
+        <div className="form-row1">
           <label>End Date</label>
           <input
             type="date"
@@ -177,7 +177,7 @@ const AddScheduleForm: React.FC = () => {
           />
         </div>
 
-        <div className="form-row">
+        <div className="form-row1">
   <label>Work Order ID</label>
   <select name="workOrderId" value={formData.workOrderId} onChange={handleChange}>
     <option value="">Select work order</option>
@@ -189,7 +189,7 @@ const AddScheduleForm: React.FC = () => {
   </select>
 </div>
 
-        <div className="form-row">
+        <div className="form-row1">
           <label>Comments</label>
           <textarea rows={2} placeholder="Enter your comments here..." />
         </div>

@@ -34,20 +34,20 @@
   margin-bottom: 20px;
 }
 
-.form-row {
+.form-row1 {
   display: flex;
   flex-direction: column;
 }
 
-.form-row label {
+.form-row1 label {
   font-weight: 600;
   margin-bottom: 0px;
   color: #34495e;
 }
 
-.form-row select,
-.form-row input[type="date"],
-.form-row input[type="number"] {
+.form-row1 select,
+.form-row1 input[type="date"],
+.form-row1 input[type="number"] {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -56,8 +56,8 @@
   transition: border 0.3s;
 }
 
-.form-row select:focus,
-.form-row input:focus {
+.form-row1 select:focus,
+.form-row1 input:focus {
   border-color: #007bff;
   background-color: #fff;
   outline: none;
