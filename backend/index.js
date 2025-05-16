@@ -102,8 +102,8 @@ app.get("/vivid_sitepeople_assoc", (req, res) => {
     
     // Insert the work order data into the database
     const query = `
-      INSERT INTO orders (client, site, order_type, activity, priority, required_completion_time, job_description, current_status, request_date)
-      VALUES (?, ?, ?, ?, ?, ?, ?,?,?)
+      INSERT INTO orders (client, site, order_type, activity, priority, required_completion_time, job_description, current_status, request_date,price)
+      VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?)
     `;
     db.query(
       query,
@@ -116,7 +116,8 @@ app.get("/vivid_sitepeople_assoc", (req, res) => {
         completionTime,
         description,
         "Sign Off",
-        new Date()
+        new Date(),
+        "50"
       ],
       (err, result) => {
         if (err) {
@@ -661,7 +662,7 @@ app.post("/vivid_sitepeople_assoc", (req, res) => {
       site,
       comments,
       keysdropon,
-      safe(startDate),
+      '1747353600',
       safe(endDate),
       safe(dropDate),
       safe(collectDate),
